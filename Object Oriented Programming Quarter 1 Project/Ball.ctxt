@@ -1,0 +1,8 @@
+#BlueJ class context
+#Wed Sep 30 16:45:25 CDT 2026
+comment0.target=Ball
+comment0.text=\n Aadya Agrawal\n Object Oriented Programming Project Fall 2026\n
+comment1.target=Ball()
+comment1.text=\n Constructor for objects of class Ball\n
+comment2.target=void launch()
+numComments=3
