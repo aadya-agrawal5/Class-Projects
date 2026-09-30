@@ -5,23 +5,33 @@
  */
 public class Ball
 {
-    public double x;
-    public double y;
-    public double vx;
-    public double vy;
+    public double x; // x position
+    public double y; // y position
+    public double vx; // velocity in the x direction
+    public double vy; // velocity in the y direction
     public double radius = 10;
     public static final double gravity = 600;
 
     /**
      * Constructor for objects of class Ball
      */
-    public Ball()
+    public Ball(double x, double y) // these are parameters of the constructor, so unique values are assigned each time a new object is instantiated
     {
         radius = 10;
+        this.x = x;
+        this.y = y;
     }
 
-    public void launch()
+    public void launch(double speed, double angleDegrees) // run when launch button is pressed; this method will need to be called in another method
     {
-        // I will add code for calculating calculating the velocity based on the angle.
+        double angleRadians = Math.toRadians(angleDegrees); // Java requires radians to calculate sine and cosine
+        vx = speed * Math.cos(angleRadians);
+        vx = speed * Math.sin(angleRadians);
+    }
+    
+    public void update(double time)
+    {
+        x = x + vx*time;
+        y = y + vy*time;
     }
 }
