@@ -1,5 +1,5 @@
 #BlueJ class context
-#Wed Sep 30 17:31:28 CDT 2026
+#Sat Oct 03 15:51:11 CDT 2026
 comment0.target=Ball
 comment0.text=\n Aadya Agrawal\n Object Oriented Programming Project Fall 2026\n
 comment1.params=x y
@@ -9,4 +9,8 @@ comment2.params=speed angleDegrees
 comment2.target=void launch(double, double)
 comment3.params=time
 comment3.target=void update(double)
-numComments=4
+comment4.target=void bounceOffGround()
+comment5.target=void bounceOffWall()
+comment6.target=double getX()
+comment7.target=double getRadius()
+numComments=8

@@ -1,3 +1,32 @@
 #BlueJ package file
-#Wed Sep 30 16:31:33 CDT 2026
+editor.fx.0.height=877
+editor.fx.0.width=1470
+editor.fx.0.x=0
+editor.fx.0.y=37
+objectbench.height=117
+objectbench.width=1446
+package.divider.horizontal=0.5537931034482758
+package.divider.vertical=0.8474784747847478
+package.editor.height=682
+package.editor.width=1354
+package.editor.x=0
+package.editor.y=37
+package.frame.height=877
+package.frame.width=1470
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
 project.charset=UTF-8
+readme.height=60
+readme.name=@README
+readme.width=48
+readme.x=10
+readme.y=10
+target1.height=70
+target1.name=Ball
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=120
+target1.x=70
+target1.y=10

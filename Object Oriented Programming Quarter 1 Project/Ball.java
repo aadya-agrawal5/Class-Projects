@@ -34,4 +34,24 @@ public class Ball
         x = x + vx*time;
         y = y + vy*time;
     }
+    
+    public void bounceOffGround()
+    {
+        vy = -vy * 0.8;
+    }
+    
+    public void bounceOffWall()
+    {
+        vx = -vx * 0.8;
+    }
+    
+    public double getX()
+    {
+        return x;
+    }
+    
+    public double getRadius()
+    {
+        return radius;
+    }
 }
