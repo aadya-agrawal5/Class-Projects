@@ -3,13 +3,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel implements ActionListener{
     private static final int groundYValue = 500;
     private static final int wallXValue = 700;
     private boolean inFlight;
