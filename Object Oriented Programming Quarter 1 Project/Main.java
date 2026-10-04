@@ -6,12 +6,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Tennis Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800,800);
-
-        javax.swing.JPanel panel = new JPanel();
-        panel.setBackground(Color.green);
-
-        frame.add(panel);
+        frame.add(new GamePanel());
 
         frame.setVisible(true);
     }
