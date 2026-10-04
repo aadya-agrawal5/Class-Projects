@@ -1,7 +1,9 @@
 
 /**
- * Aadya Agrawal
- * Object Oriented Programming Project Fall 2026
+ * Name: Aadya Agrawal
+ * Course: Object Oriented Programming
+ * Instructor: Dr. Ashwin Mohan, IMSA
+ * Title: Quarter 1 Final Project, Fall 2026, Junior Year
  */
 public class Ball
 {
@@ -10,11 +12,8 @@ public class Ball
     public double vx; // velocity in the x direction
     public double vy; // velocity in the y direction
     public double radius = 10;
-    public static final double gravity = 600;
+    public static final double GRAVITY = 600;
 
-    /**
-     * Constructor for objects of class Ball
-     */
     public Ball(double x, double y) // these are parameters of the constructor, so unique values are assigned each time a new object is instantiated
     {
         radius = 10;
