@@ -2,20 +2,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Target {
-    private double x;
-    private double y;
-    private double width;
-    private double height;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+
+    public Target(int height, int width, int x, int y) {
+        this.height = height;
+        this.width = width;
+        this.x = x;
+        this.y = y;
+    }
 
     public boolean targetIsHit(Ball ball1) {
-        if (ball1.getX()>=x && ball1.getX()<=x+width) {
-            if (ball1.getY()>=y && ball1.getY()<=y+height){
-                return true;
-            }
-        }
-        else {
-            return false;
-        }
+        return ball1.getX()>=x && ball1.getY()<=x+width && ball1.getY()>=y && ball1.getY()<=y+height;
     }
 
     public void draw(Graphics draw1) {
