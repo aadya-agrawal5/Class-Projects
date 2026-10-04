@@ -61,4 +61,12 @@ public class Ball
     {
         return radius;
     }
+
+    public void reset(double startingX, double startingY)
+    {
+        x = startingX;
+        y = startingY;
+        vx = 0;
+        vy = 0;
+    }
 }
