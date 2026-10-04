@@ -12,6 +12,10 @@ import javax.swing.JSlider;
 public class GamePanel extends JPanel{
     private static final int groundYValue = 500;
     private static final int wallXValue = 700;
+    private boolean inFlight;
+    private double lastKnownSpeed;
+    private double lastKnownAngle;
+    private int groundBounces;
     public GamePanel()
     {
         setPreferredSize(new Dimension(800,500));
@@ -31,6 +35,20 @@ public class GamePanel extends JPanel{
         Timer timer = new Timer(16, this);
         timer.start();
         
+    }
+
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == launchButton) {
+            if (!inFlight) {
+                lastKnownSpeed = speedSlider.getValue();
+                lastKnownAngle = angleSlider.getValue();
+                ball.launch(lastKnownSpeed,lastKnownAngle);
+                inFlight = true;
+                groundBounces = 0;
+            }
+        }
+        else {update();}
     }
 
     public void paintComponent(Graphics object) {
