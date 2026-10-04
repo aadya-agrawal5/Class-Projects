@@ -48,6 +48,11 @@ public class Ball
     {
         return x;
     }
+
+    public double getY()
+    {
+        return y;
+    }
     
     public double getRadius()
     {
