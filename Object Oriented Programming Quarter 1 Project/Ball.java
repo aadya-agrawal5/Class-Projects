@@ -25,22 +25,25 @@ public class Ball
     {
         double angleRadians = Math.toRadians(angleDegrees); // Java requires radians to calculate sine and cosine
         vx = speed * Math.cos(angleRadians);
-        vx = speed * Math.sin(angleRadians);
+        vy = speed * Math.sin(angleRadians);
     }
     
     public void update(double time)
     {
+        vy = vy + GRAVITY * time;
         x = x + vx*time;
         y = y + vy*time;
     }
     
-    public void bounceOffGround()
+    public void bounceOffGround(double groundYValue)
     {
+        y = groundYValue - radius;
         vy = -vy * 0.8;
     }
     
-    public void bounceOffWall()
+    public void bounceOffWall(double wallXValue)
     {
+        x = wallXValue - radius;
         vx = -vx * 0.8;
     }
     
