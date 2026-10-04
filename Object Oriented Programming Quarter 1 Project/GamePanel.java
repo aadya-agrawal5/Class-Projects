@@ -17,13 +17,19 @@ public class GamePanel extends JPanel implements ActionListener{
     private double lastKnownSpeed;
     private double lastKnownAngle;
     private int groundBounces;
+
+    private Ball ball;
+    private Target target;
+    private JSlider speedSlider;
+    private JSlider angleSlider;
+    private JButton launchButton;
     public GamePanel()
     {
         setPreferredSize(new Dimension(800,500));
         
-        JSlider speedSlider = new JSlider(100,1000);
-        JSlider angleSlider = new JSlider(0,180);
-        JButton launchButton = new JButton("Launch");
+        speedSlider = new JSlider(100,1000);
+        angleSlider = new JSlider(0,180);
+        launchButton = new JButton("Launch");
         launchButton.addActionListener(this);
         add(launchButton);
 
