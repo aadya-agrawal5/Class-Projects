@@ -25,7 +25,7 @@ public class Ball
     {
         double angleRadians = Math.toRadians(angleDegrees); // Java requires radians to calculate sine and cosine
         vx = speed * Math.cos(angleRadians);
-        vy = speed * Math.sin(angleRadians);
+        vy = -speed * Math.sin(angleRadians);
     }
     
     public void update(double time)

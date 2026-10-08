@@ -8,14 +8,14 @@ public class Target {
     private int height;
 
     public Target(int height, int width, int x, int y) {
-        this.height = height;
-        this.width = width;
         this.x = x;
         this.y = y;
+        this.height = height;
+        this.width = width;
     }
 
     public boolean targetIsHit(Ball ball1) {
-        return ball1.getX()>=x && ball1.getY()<=x+width && ball1.getY()>=y && ball1.getY()<=y+height;
+        return ball1.getX()>=x && ball1.getX()<=x+width && ball1.getY()>=y && ball1.getY()<=y+height;
     }
 
     public void draw(Graphics draw1) {
