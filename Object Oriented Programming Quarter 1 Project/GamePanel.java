@@ -13,10 +13,13 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener{
     private static final int groundYValue = 450;
     private static final int wallXValue = 700;
+    private static final double startingX = 100;
+    private static final double startingY = 400;
     private boolean inFlight;
     private double lastKnownSpeed;
     private double lastKnownAngle;
     private int groundBounces;
+    private int hits;
 
     private Ball ball;
     private Target target;
@@ -27,8 +30,8 @@ public class GamePanel extends JPanel implements ActionListener{
     {
         setPreferredSize(new Dimension(800,500));
         
-        speedSlider = new JSlider(100,1000);
-        angleSlider = new JSlider(0,180);
+        speedSlider = new JSlider(100,1000,700);
+        angleSlider = new JSlider(5,80,45);
         ball = new Ball(100, 300);
         target = new Target(680,250,20,60);
         launchButton = new JButton("Launch");
@@ -37,12 +40,16 @@ public class GamePanel extends JPanel implements ActionListener{
 
         add(new JLabel("Speed"));
         add(speedSlider);
+        speedSlider.setMajorTickSpacing(300);
+        speedSlider.setPaintLabels(inFlight);
 
         add(new JLabel("Angle"));
 
         add(angleSlider);
         Timer timer = new Timer(16, this);
         timer.start();
+        angleSlider.setMajorTickSpacing(15);
+        angleSlider.setPaintLabels(inFlight);
         
     }
 
@@ -56,6 +63,13 @@ public class GamePanel extends JPanel implements ActionListener{
             }
             if (yPlusRadius>=groundYValue) {
                 ball.bounceOffGround(groundYValue);
+            }
+            if (target.targetIsHit(ball)) {
+                hits = hits + 1;
+                endShot();
+            }
+            else if (groundBounces>=2 || ball.getX()<0) {
+                endShot();
             }
         }
         repaint();
@@ -91,6 +105,13 @@ public class GamePanel extends JPanel implements ActionListener{
         object.setColor(Color.orange);
         int radius1 = (int) ball.getRadius();
         object.fillOval((int) ball.getX() - radius1, (int) ball.getY() - radius1, 2 * radius1, 2 * radius1);
+        object.setColor(Color.black);
+        object.drawString("Hits: " + hits, 20,100); // 20 and 100 are the x and y coordinates, respectively of where this message will be displayed
+    }
+
+    private void endShot() {
+        ball.reset(startingX, startingY);
+        inFlight = false;
     }
 
 }
