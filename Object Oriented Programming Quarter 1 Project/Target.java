@@ -7,7 +7,7 @@ public class Target {
     private int width;
     private int height;
 
-    public Target(int height, int width, int x, int y) {
+    public Target(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.height = height;

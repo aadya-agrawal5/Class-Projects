@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements ActionListener{
     private static final int groundYValue = 450;
     private static final int wallXValue = 700;
     private static final double startingX = 100;
-    private static final double startingY = 400;
+    private static final double startingY = 440;
     private boolean inFlight;
     private double lastKnownSpeed;
     private double lastKnownAngle;
@@ -29,11 +29,12 @@ public class GamePanel extends JPanel implements ActionListener{
     public GamePanel()
     {
         setPreferredSize(new Dimension(800,500));
+        setBackground(new Color(200, 230, 255));
         
         speedSlider = new JSlider(100,1000,700);
         angleSlider = new JSlider(5,80,45);
-        ball = new Ball(100, 300);
-        target = new Target(680,250,20,60);
+        ball = new Ball(startingX,startingY);
+        target = new Target(680,250,30,80);
         launchButton = new JButton("Launch");
         launchButton.addActionListener(this);
         add(launchButton);
@@ -41,7 +42,8 @@ public class GamePanel extends JPanel implements ActionListener{
         add(new JLabel("Speed"));
         add(speedSlider);
         speedSlider.setMajorTickSpacing(300);
-        speedSlider.setPaintLabels(inFlight);
+        speedSlider.setPaintLabels(true);
+        angleSlider.setPaintLabels(true);
 
         add(new JLabel("Angle"));
 
@@ -63,6 +65,7 @@ public class GamePanel extends JPanel implements ActionListener{
             }
             if (yPlusRadius>=groundYValue) {
                 ball.bounceOffGround(groundYValue);
+                groundBounces = groundBounces + 1;
             }
             if (target.targetIsHit(ball)) {
                 hits = hits + 1;
@@ -98,7 +101,7 @@ public class GamePanel extends JPanel implements ActionListener{
         object.fillRect(0, groundYValue, getWidth(), 50);
 
         object.setColor(Color.gray);
-        object.fillRect(wallXValue, 0, 50, groundYValue);
+        object.fillRect(wallXValue, 0, getWidth() - wallXValue, groundYValue);
 
         target.draw(object);
 
