@@ -69,4 +69,14 @@ public class Ball
         vx = 0;
         vy = 0;
     }
+
+    public void bounceOffCeiling() {
+        y = radius;
+        vy = -vy*0.8;
+    }
+
+    public void bounceOffLeft() {
+        x = radius;
+        vx = -vx * 0.8;
+    }
 }

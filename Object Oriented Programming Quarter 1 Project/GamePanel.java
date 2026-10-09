@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,9 @@ public class GamePanel extends JPanel implements ActionListener{
     private double lastKnownAngle;
     private int groundBounces;
     private int hits;
+
+    private int shots;
+    private String message = "";
 
     private Ball ball;
     private Target target;
@@ -67,11 +71,23 @@ public class GamePanel extends JPanel implements ActionListener{
                 ball.bounceOffGround(groundYValue);
                 groundBounces = groundBounces + 1;
             }
+
+            if (ball.getY() - ball.getRadius() <= 0) {
+                ball.bounceOffCeiling();
+            }
+
+            if (ball.getX() - ball.getRadius() <=0) {
+                ball.bounceOffLeft();
+            }
+
             if (target.targetIsHit(ball)) {
                 hits = hits + 1;
+                message = "Good job! Yayyy!";
+                target.setY((int) (Math.random() * 290) + 80);
                 endShot();
             }
             else if (groundBounces>=2 || ball.getX()<0) {
+                message = "Better like next time, I guess!";
                 endShot();
             }
         }
@@ -84,6 +100,7 @@ public class GamePanel extends JPanel implements ActionListener{
                 lastKnownSpeed = speedSlider.getValue();
                 lastKnownAngle = angleSlider.getValue();
                 ball.launch(lastKnownSpeed,lastKnownAngle);
+                message = "";
                 inFlight = true;
                 groundBounces = 0;
             }
@@ -109,10 +126,13 @@ public class GamePanel extends JPanel implements ActionListener{
         int radius1 = (int) ball.getRadius();
         object.fillOval((int) ball.getX() - radius1, (int) ball.getY() - radius1, 2 * radius1, 2 * radius1);
         object.setColor(Color.black);
-        object.drawString("Hits: " + hits, 20,100); // 20 and 100 are the x and y coordinates, respectively of where this message will be displayed
+        object.drawString("Hits: " + hits + " / Shots: " + shots, 20, 100); // 20 and 100 are the x and y coordinates, respectively of where this message will be displayed
+        object.drawString(message, 20, 125);
+        object.setFont(new Font("Arial", Font.BOLD, 18)); // to emphasize the message
     }
 
     private void endShot() {
+        shots = shots + 1;
         ball.reset(startingX, startingY);
         inFlight = false;
     }

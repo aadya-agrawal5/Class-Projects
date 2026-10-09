@@ -7,6 +7,10 @@ public class Target {
     private int width;
     private int height;
 
+    public void setY(int newY) {
+        y = newY;
+    }
+    
     public Target(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
