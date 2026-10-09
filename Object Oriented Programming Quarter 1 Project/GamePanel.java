@@ -41,6 +41,10 @@ public class GamePanel extends JPanel implements ActionListener{
         target = new Target(680,250,30,80);
         launchButton = new JButton("Launch");
         launchButton.addActionListener(this);
+        JLabel instructions = new JLabel("Instructions: You must adjust the angle and speed to hit the target red box.");
+        instructions.setPreferredSize(new Dimension(800, 20));
+        instructions.setHorizontalAlignment(JLabel.CENTER);
+        add(instructions);
         add(launchButton);
 
         add(new JLabel("Speed"));
