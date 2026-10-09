@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements ActionListener{
                 endShot();
             }
             else if (groundBounces>=2) {
-                message = "Better like next time, I guess!";
+                message = "Better luck next time, I guess!";
                 endShot();
             }
         }
