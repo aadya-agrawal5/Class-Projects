@@ -86,7 +86,7 @@ public class GamePanel extends JPanel implements ActionListener{
                 target.setY((int) (Math.random() * 290) + 80);
                 endShot();
             }
-            else if (groundBounces>=2 || ball.getX()<0) {
+            else if (groundBounces>=2) {
                 message = "Better like next time, I guess!";
                 endShot();
             }
